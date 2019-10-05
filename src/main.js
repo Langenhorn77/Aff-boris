@@ -3,6 +3,7 @@ import App from './App.vue'
 import PageHeader from "./components/PageHeader";
 import PageMain from "./components/PageMain";
 import PageFooter from "./components/PageFooter";
+import store from './store'
 import style from './style.css'
 
 
@@ -15,5 +16,6 @@ Vue.use(VueScrollTo);
 
 new Vue({
   el: '#app',
+  store: store,
   render: h => h(App)
 })

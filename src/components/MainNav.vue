@@ -140,13 +140,7 @@
   
   @media (min-width: 1024px) {
     .main-nav {
-      &__burger {
-        display: none;
-      }
-      
-      &__cross {
-        display: none;
-      }
+      display: none;
       
       &__list {
         display: flex;

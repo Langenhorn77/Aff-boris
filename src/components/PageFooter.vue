@@ -1,7 +1,7 @@
 <template>
   <footer class="page-footer">
     <div class="page-footer__wrapper">
-      <main-nav is-in-footer></main-nav>
+      <main-menu is-in-footer></main-menu>
       <social is-in-footer></social>
     </div>
   </footer>
@@ -9,13 +9,13 @@
 </template>
 
 <script>
-  import MainNav from './MainNav.vue'
+  import MainMenu from './MainMenu.vue'
   import Social from './Social.vue'
   
   export default {
     name: "PageFooter",
     components: {
-      MainNav: MainNav,
+      MainMenu: MainMenu,
       Social: Social
     }
   }

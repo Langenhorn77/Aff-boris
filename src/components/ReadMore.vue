@@ -1,12 +1,48 @@
 <template>
-  <button class="read">
-    читать больше
-  </button>
+  <div>
+    <button class="read" @click="saveText">
+      <span v-if="!show" @click="show = !show">читать больше</span>
+      <span v-else @click="show = !show">скрыть</span>
+    </button>
+  </div>
+ 
+  
 </template>
 
 <script>
+  const axios = require('axios');
+  
   export default {
-    name: "ReadMore"
+    name: "ReadMore",
+    data () {
+      return {
+        show: false,
+        str: [],
+        errors: [],
+        s2: '',
+      }
+      
+    },
+    
+    created () {
+      axios.get('https://jsonplaceholder.typicode.com/posts/1')
+        .then(response => {
+          this.str = response.data
+        })
+        .catch(e => {
+          this.errors.push(e)
+        });
+    },
+    
+    methods: {
+      saveText () {
+        this.s2 = this.str.body;
+        this.$emit('arrShow', this.s2);
+        this.$emit ('close', this.show)
+      },
+      
+    }
+    
   }
 </script>
 
@@ -25,8 +61,6 @@
     position: relative;
   
     width: 121px;
-    
-    
     margin-top: 2px;
     
     &::before {
@@ -37,6 +71,14 @@
       width: 121px;
       height: 16px;
       background-image: url("../assets/arrow.svg");
+      z-index: 2;
+    }
+    
+    & span {
+      position: relative;
+      display: block;
+      height: 34px;
+      z-index: 3;
     }
   }
 

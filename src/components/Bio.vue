@@ -7,11 +7,15 @@
           <span>{{item.year}}</span>
           <p>{{item.content}}</p>
         </li>
+        <li class="biography__item" v-if="show">
+          <span></span>
+          <p class="biography__recieved">{{text}}</p>
+        </li>
       </ul>
     </div>
   
     <div class="biography__wrapper-bottom">
-      <read-more></read-more>
+      <read-more @arrShow="text = $event" @close="show = $event"></read-more>
       <social></social>
     </div>
   </section>
@@ -26,6 +30,8 @@
     data() {
       return {
         title: 'биография',
+        text: '',
+        show: false,
         info: [
           {
             year: '',
@@ -41,13 +47,19 @@
             year: '1896',
             content: 'Окончив семинарию, в 1896 году Кустодиев отправился учиться в Москву, но в художественную школу его не приняли: Борису уже исполнилось 18 и он был слишком взрослым. Тогда Кустодиев поехал в Петербург, где подал документы в Высшее художественное училище при Академии художеств.'
           }
-        ]
+        ],
+        
+       
         
       }
     },
     components: {
       ReadMore: ReadMore,
       Social: Social
+    },
+    
+    methods: {
+    
     }
   }
 </script>
@@ -82,6 +94,7 @@
       letter-spacing: 0.2px;
       line-height: 26px;
     }
+    
   }
   
     @media (min-width: 768px) {
@@ -135,6 +148,10 @@
       }
   
       &__item:nth-child(1) p {
+        margin-left: 48px;
+      }
+  
+      &__recieved {
         margin-left: 48px;
       }
   
