@@ -25,7 +25,7 @@
     },
     
     created () {
-      axios.get('https://jsonplaceholder.typicode.com/posts/1')
+      axios.get('https://jsonplaceholder.typicode.com/posts')
         .then(response => {
           this.str = response.data
         })
@@ -36,7 +36,7 @@
     
     methods: {
       saveText () {
-        this.s2 = this.str.body;
+        this.s2 = this.str[1].body;
         this.$emit('arrShow', this.s2);
         this.$emit ('close', this.show)
       },

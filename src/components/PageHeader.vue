@@ -123,9 +123,22 @@
 
   @media (min-width: 1024px) {
     .page-header {
+      position: relative;
   
       &__wrapper {
         width: calc(100% - 460px);
+        display: flex;
+        flex-direction: column;
+      }
+      
+      &__wrapper::before {
+        content: "";
+        position: absolute;
+        right: 100px;
+        bottom: 40px;
+        width: 60px;
+        height: 60px;
+        background-image: url("../assets/affinage-logo.svg");
       }
   
       &__wrapper-top {

@@ -58,7 +58,6 @@
       width: 100%;
       
       box-sizing: border-box;
-      /*position: relative;*/
       
       &__date {
         width: 320px;
@@ -66,8 +65,6 @@
         line-height: 91.49%;
         transform: rotate(270deg);
         position: absolute;
-        /*top: 113px;
-        right: 73.5%;*/
         top: 360px;
         left: 28.5%;
       }
@@ -77,6 +74,7 @@
         font-size: 80px;
         line-height: 80px;
         margin-left: 19%;
+        margin-top: 0;
       }
   
       &__text {

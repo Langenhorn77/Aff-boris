@@ -260,22 +260,22 @@
         if (!e.touches) {
           e.preventDefault()
         }
-        this.mouseDown = true
-        this.dragStartX = ('ontouchstart' in window) ? e.touches[0].clientX : e.clientX
-        this.dragStartY = ('ontouchstart' in window) ? e.touches[0].clientY : e.clientY
+        this.mouseDown = true;
+        this.dragStartX = ('ontouchstart' in window) ? e.touches[0].clientX : e.clientX;
+        this.dragStartY = ('ontouchstart' in window) ? e.touches[0].clientY : e.clientY;
       },
       handleMouseMove(e) {
-        let positionX = ('ontouchstart' in window) ? e.touches[0].clientX : e.clientX
-        let positionY = ('ontouchstart' in window) ? e.touches[0].clientY : e.clientY
-        let dragDistanceX = Math.abs(positionX - this.dragStartX)
-        let dragDistanceY = Math.abs(positionY - this.dragStartY)
+        let positionX = ('ontouchstart' in window) ? e.touches[0].clientX : e.clientX;
+        let positionY = ('ontouchstart' in window) ? e.touches[0].clientY : e.clientY;
+        let dragDistanceX = Math.abs(positionX - this.dragStartX);
+        let dragDistanceY = Math.abs(positionY - this.dragStartY);
         if (dragDistanceX > 3 * dragDistanceY) {
           this.dragDistance = positionX - this.dragStartX
           this.disableScroll()
         }
       },
       handleMouseUp() {
-        this.mouseDown = false
+        this.mouseDown = false;
         this.enableScroll()
       },
       disableScroll() {
